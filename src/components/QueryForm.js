@@ -1,11 +1,14 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { getBooks } from '../redux/actions';
 
-function QueyForm({ onSubmit }) {
+function QueyForm() {
   const initialForm = {
     query: '',
     category: 'all',
     sort: 'relevance'
   }
+  const dispatch = useDispatch();
   const [query, setQuery] = useState(initialForm);
   function handleChange(e) {
     const target = e.target;
@@ -15,7 +18,7 @@ function QueyForm({ onSubmit }) {
   }
   function handlerSubmit(e) {
     e.preventDefault();
-    onSubmit(query);
+    dispatch(getBooks(query.query))
     e.target.reset();
   }
   return (
