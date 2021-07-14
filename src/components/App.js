@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import Books from './Books/Books'
+import BookList from './Books/BookList'
 import QueryForm from './QueryForm';
 
 function App() {
-  function handlerSubmit(query) {
+  function handleSubmit(query) {
     console.log(query)
   }
-  const [books, setBooks] = useState([]);
   return (
     <div className="container">
       <h1>Search for books</h1>
-      <QueryForm onSubmit={handlerSubmit} />
-      <Books books={books} />
+      <QueryForm onSubmit={handleSubmit} />
+      <BookList />
     </div >
   );
 }

@@ -73,4 +73,5 @@ function QueyForm({ onSubmit }) {
     </form>
   )
 }
+
 export default QueyForm

@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Book from './Book'
 
 function BookList({ books, countBooks = 30 }) {
@@ -8,4 +9,12 @@ function BookList({ books, countBooks = 30 }) {
     </section>
   )
 }
-export default BookList
+
+function mapStateToProps(state) {
+  console.log(state.books.books);
+  return {
+    books: state.books.books
+  }
+}
+
+export default connect(mapStateToProps, null)(BookList)
